@@ -2,39 +2,185 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<title>Kryminologia – Analiza Spraw</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mroczne Zagadki</title>
 <style>
-body {
-    background-color: #0f0f0f;
-    color: #cfcfcf;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 50px;
-}
+    /* --- Ogólne --- */
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0a0a0a;
+        color: #e0e0e0;
+        overflow-x: hidden;
+        position: relative;
+    }
 
-h1 {
-    letter-spacing: 4px;
-}
+    /* --- Animowane krople krwi --- */
+    @keyframes drop {
+        0% { top: -50px; opacity: 1; transform: translateX(0) rotate(0deg);}
+        100% { top: 100%; opacity: 0; transform: translateX(20px) rotate(360deg);}
+    }
+    .blood-drop {
+        position: absolute;
+        width: 8px;
+        height: 15px;
+        background-color: #aa0000;
+        border-radius: 50% 50% 50% 50%;
+        opacity: 0.8;
+        animation: drop linear infinite;
+    }
 
-section {
-    max-width: 700px;
-    margin: auto;
-    line-height: 1.6;
-}
+    /* --- Nagłówek --- */
+    header {
+        background-color: #1a1a1a;
+        padding: 50px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    header h1 {
+        font-size: 3em;
+        color: #ff2222;
+        text-shadow: 2px 2px 10px #000;
+        letter-spacing: 3px;
+        margin: 0;
+    }
+
+    /* --- Tło nagłówka --- */
+    header::after {
+        content: '';
+        position: absolute;
+        top:0; left:0;
+        width:100%; height:100%;
+        background: url('https://images.unsplash.com/photo-1559927977-23c3b7e22949?fit=crop&w=1600&q=80') center/cover no-repeat;
+        opacity:0.1;
+        z-index:-1;
+    }
+
+    /* --- Nawigacja --- */
+    nav {
+        background-color: #111;
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+        border-bottom: 2px solid #550000;
+    }
+    nav a {
+        color: #e0e0e0;
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: bold;
+        transition: color 0.3s, transform 0.3s;
+    }
+    nav a:hover {
+        color: #ff4444;
+        transform: scale(1.1);
+    }
+
+    /* --- Sekcje --- */
+    main {
+        max-width: 1000px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+    section {
+        margin-bottom: 60px;
+        padding: 20px;
+        background-color: #111111;
+        border-left: 5px solid #ff2222;
+        box-shadow: 0 0 20px #000;
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+    }
+    section:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 40px #ff0000;
+    }
+    section h2 {
+        color: #ff4444;
+        border-bottom: 1px solid #550000;
+        padding-bottom: 5px;
+    }
+    section p {
+        line-height: 1.6;
+    }
+    section img {
+        max-width: 100%;
+        border: 2px solid #550000;
+        margin-top: 15px;
+        display: block;
+    }
+
+    /* --- Stopka --- */
+    footer {
+        background-color: #1a1a1a;
+        text-align: center;
+        padding: 25px;
+        border-top: 2px solid #550000;
+        font-size: 0.9em;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* --- Animacja fade-in --- */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s forwards;
+    }
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 </style>
-
 </head>
 <body>
+<header>
+    <h1 class="fade-in">Mroczne Zagadki</h1>
+</header>
 
-<h1>AKTA SPRAW</h1>
+<nav class="fade-in" style="animation-delay: 0.5s;">
+    <a href="#mordercy">Mordercy</a>
+    <a href="#kryminalistyka">Kryminalistyka</a>
+    <a href="#zagadki">Zagadki</a>
+</nav>
 
-<section>
-<p>
-Strona poświęcona analizie kryminologicznej znanych spraw.
-Skupiamy się na psychologii, metodologii śledczej i faktach.
-</p>
-</section>
+<main>
+    <section id="mordercy" class="fade-in" style="animation-delay: 1s;">
+        <h2>Znani Mordercy</h2>
+        <p>Przegląd najbardziej mrocznych spraw kryminalnych, historie, które wstrząsnęły światem. Analiza działań, motywów i technik przestępców.</p>
+        <img src="https://images.unsplash.com/photo-1581093588401-2f9ee12f0f85?fit=crop&w=1000&q=80" alt="Mordercy">
+    </section>
 
+    <section id="kryminalistyka" class="fade-in" style="animation-delay: 1.5s;">
+        <h2>Sztuka Kryminalistyki</h2>
+        <p>Jak śledczy wykorzystują naukę i technologię do rozwiązywania zagadek zbrodni. Metody analizy dowodów, odcisków palców, DNA i odtwarzania zdarzeń.</p>
+        <img src="https://images.unsplash.com/photo-1555685812-4b943f1f38b0?fit=crop&w=1000&q=80" alt="Kryminalistyka">
+    </section>
+
+    <section id="zagadki" class="fade-in" style="animation-delay: 2s;">
+        <h2>Mroczne Zagadki</h2>
+        <p>Prezentacja niewyjaśnionych spraw, tajemniczych morderstw i kontrowersyjnych historii kryminalnych. Każda zagadka to osobna opowieść pełna napięcia.</p>
+        <img src="https://images.unsplash.com/photo-1597600151183-3e5ad241cbff?fit=crop&w=1000&q=80" alt="Zagadki kryminalne">
+    </section>
+</main>
+
+<footer class="fade-in" style="animation-delay: 2.5s;">
+    &copy; 2026 Mroczne Zagadki. Wszystkie prawa zastrzeżone.
+</footer>
+
+<!-- --- Krople krwi animacja --- -->
+<script>
+    for(let i=0;i<40;i++){
+        const drop = document.createElement('div');
+        drop.className = 'blood-drop';
+        drop.style.left = Math.random()*100+'%';
+        drop.style.animationDuration = 2 + Math.random()*3 + 's';
+        drop.style.animationDelay = Math.random()*5 + 's';
+        document.body.appendChild(drop);
+    }
+</script>
 </body>
 </html>
