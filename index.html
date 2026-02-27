@@ -3,102 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mroczne Zagadki</title>
+<title>Noir Crime Portal</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-font-family:'Montserrat', sans-serif;
-background:#0b0b0d;
-color:#e6e6e6;
+font-family:'Inter',sans-serif;
+background:#0a0a0f;
+color:#e8e8e8;
 overflow-x:hidden;
 }
 
-/* HERO */
-.hero{
-height:100vh;
-background:linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-url('assets/hero.jpg') center/cover fixed;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-}
-
-.hero h1{
-font-family:'Playfair Display', serif;
-font-size:70px;
-letter-spacing:4px;
-color:#ff2e2e;
-text-shadow:0 0 20px rgba(255,0,0,0.7);
-animation:fadeIn 2s ease;
-}
-
-.hero p{
-margin-top:20px;
-font-size:20px;
-color:#ccc;
-max-width:700px;
-animation:fadeIn 3s ease;
-}
-
-/* NAV */
+/* NAWIGACJA */
 nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
 display:flex;
 justify-content:center;
-gap:40px;
-padding:20px;
+gap:60px;
+padding:25px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(12px);
 z-index:1000;
+border-bottom:1px solid rgba(255,0,0,0.2);
 }
 
 nav a{
-color:#ccc;
+color:#aaa;
 text-decoration:none;
 font-weight:500;
+letter-spacing:1px;
 transition:0.3s;
 }
 
 nav a:hover{
 color:#ff2e2e;
+text-shadow:0 0 12px red;
+}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+background:
+linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.95)),
+url("data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
+<rect width='1200' height='800' fill='%230b0b0f'/>
+<circle cx='950' cy='150' r='120' fill='%23ff0000' opacity='0.08'/>
+<rect x='200' y='300' width='800' height='300' fill='%23111118'/>
+<text x='600' y='500' fill='%23333333' font-size='120' text-anchor='middle'>CRIME</text>
+</svg>");
+background-size:cover;
+}
+
+.hero h1{
+font-family:'Cinzel',serif;
+font-size:70px;
+letter-spacing:5px;
+color:#ff2e2e;
+text-shadow:0 0 25px rgba(255,0,0,0.8);
+animation:fadeDown 2s ease;
+}
+
+.hero p{
+margin-top:20px;
+max-width:700px;
+color:#bbb;
+font-size:20px;
+animation:fadeUp 2s ease;
 }
 
 /* SEKCJE */
 .section{
 padding:120px 10%;
-display:flex;
-flex-direction:column;
-gap:60px;
+display:grid;
+gap:80px;
 }
 
 .card{
 display:flex;
 flex-wrap:wrap;
-align-items:center;
-gap:40px;
-background:rgba(255,255,255,0.05);
-border-radius:20px;
+background:rgba(255,255,255,0.04);
+border-radius:25px;
 overflow:hidden;
-backdrop-filter:blur(10px);
-box-shadow:0 0 40px rgba(255,0,0,0.15);
-transition:0.5s;
+box-shadow:0 0 50px rgba(255,0,0,0.15);
+transition:0.6s;
 opacity:0;
-transform:translateY(50px);
+transform:translateY(60px);
 }
 
 .card.show{
@@ -106,110 +107,143 @@ opacity:1;
 transform:translateY(0);
 }
 
-.card img{
-width:100%;
-max-width:500px;
+.card-image{
 flex:1;
-object-fit:cover;
+min-height:350px;
+background-size:cover;
+background-position:center;
+}
+
+.img1{
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+url("data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'>
+<rect width='800' height='600' fill='%23101015'/>
+<circle cx='400' cy='300' r='180' fill='%23ff0000' opacity='0.12'/>
+<text x='400' y='330' fill='%23333333' font-size='80' text-anchor='middle'>PROFILE</text>
+</svg>");
+}
+
+.img2{
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+url("data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'>
+<rect width='800' height='600' fill='%23111118'/>
+<circle cx='200' cy='200' r='150' fill='%23ff0000' opacity='0.1'/>
+<text x='400' y='330' fill='%23333333' font-size='70' text-anchor='middle'>FORENSICS</text>
+</svg>");
+}
+
+.img3{
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+url("data:image/svg+xml;utf8,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'>
+<rect width='800' height='600' fill='%23101014'/>
+<circle cx='600' cy='400' r='170' fill='%23ff0000' opacity='0.1'/>
+<text x='400' y='330' fill='%23333333' font-size='70' text-anchor='middle'>MYSTERY</text>
+</svg>");
 }
 
 .card-content{
 flex:1;
-padding:40px;
+padding:50px;
+display:flex;
+flex-direction:column;
+justify-content:center;
 }
 
 .card-content h2{
-font-family:'Playfair Display', serif;
-font-size:36px;
-margin-bottom:20px;
+font-family:'Cinzel',serif;
+font-size:38px;
 color:#ff3a3a;
+margin-bottom:20px;
 }
 
 .card-content p{
-line-height:1.6;
 color:#bbb;
+line-height:1.7;
 }
 
-/* FOOTER */
+/* STOPKA */
 footer{
-padding:40px;
+padding:50px;
 text-align:center;
-background:#0a0a0c;
 border-top:1px solid #222;
-color:#777;
+color:#666;
+background:#08080c;
 }
 
-/* ANIMACJA */
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
+/* ANIMACJE */
+@keyframes fadeDown{
+from{opacity:0; transform:translateY(-40px)}
+to{opacity:1; transform:translateY(0)}
+}
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(40px)}
+to{opacity:1; transform:translateY(0)}
 }
 
 /* RESPONSYWNOŚĆ */
 @media(max-width:900px){
-.hero h1{
-font-size:40px;
-}
-.card{
-flex-direction:column;
-}
+.hero h1{font-size:42px}
+.card{flex-direction:column}
 }
 
 </style>
 </head>
-
 <body>
 
 <nav>
 <a href="#">Mordercy</a>
 <a href="#">Kryminalistyka</a>
-<a href="#">Tajemnicze Sprawy</a>
+<a href="#">Tajemnice</a>
 </nav>
 
 <section class="hero">
-<h1>MROCZNE ZAGADKI</h1>
-<p>Profesjonalne analizy najgłośniejszych zbrodni, technik śledczych i niewyjaśnionych spraw.</p>
+<h1>NOIR CRIME</h1>
+<p>Portal kryminalny klasy premium. Analizy psychologiczne, techniki śledcze i najbardziej tajemnicze sprawy świata.</p>
 </section>
 
 <section class="section">
 
 <div class="card">
-<img src="assets/crime1.jpg">
+<div class="card-image img1"></div>
 <div class="card-content">
-<h2>Znani Mordercy</h2>
-<p>Psychologiczne profile, analiza motywów i rekonstrukcja wydarzeń najbardziej wstrząsających zbrodni.</p>
+<h2>Profile Sprawców</h2>
+<p>Dogłębne analizy psychologiczne, motywy działania oraz rekonstrukcje najbardziej brutalnych zbrodni.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="assets/crime2.jpg">
+<div class="card-image img2"></div>
 <div class="card-content">
 <h2>Kryminalistyka</h2>
-<p>Techniki śledcze, analiza DNA, daktyloskopia oraz nowoczesne metody wykrywania przestępstw.</p>
+<p>Nowoczesne metody śledcze: analiza DNA, daktyloskopia, ślady biologiczne oraz techniki laboratoryjne.</p>
 </div>
 </div>
 
 <div class="card">
-<img src="assets/crime3.jpg">
+<div class="card-image img3"></div>
 <div class="card-content">
-<h2>Tajemnicze Zbrodnie</h2>
-<p>Niewyjaśnione sprawy, zniknięcia i zagadki kryminalne, które do dziś budzą kontrowersje.</p>
+<h2>Niewyjaśnione Tajemnice</h2>
+<p>Zniknięcia, sprawy bez finału i zagadki, które do dziś pozostają otwarte.</p>
 </div>
 </div>
 
 </section>
 
 <footer>
-© 2026 Mroczne Zagadki | Strona profesjonalna
+© 2026 Noir Crime Portal | Wersja Premium
 </footer>
 
 <script>
 const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-cards.forEach(card => {
-const top = card.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top < window.innerHeight-100){
 card.classList.add('show');
 }
 });
