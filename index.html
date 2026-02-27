@@ -8,106 +8,106 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #0a0a0a;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt...') no-repeat center center fixed;
+    background-size: cover;
     color: #e0e0e0;
-    overflow-x: hidden;
 }
 
-/* --- Nagłówek spektakularny --- */
+body::before {
+    content: '';
+    position: fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(0,0,0,0.7);
+    z-index:-1;
+}
+
 header {
-    background-color: #1a1a1a;
-    text-align: center;
+    text-align:center;
     padding: 80px 20px;
     position: relative;
-    overflow: hidden;
 }
 header h1 {
     font-size: 4em;
-    color: #ff1111;
-    letter-spacing: 5px;
-    text-shadow: 0 0 5px #ff1111, 0 0 10px #ff1111, 0 0 20px #ff0000, 0 0 40px #550000, 0 0 80px #550000;
+    color:#ff1111;
+    letter-spacing:5px;
+    text-shadow: 0 0 5px #ff1111,0 0 10px #ff1111,0 0 20px #ff0000,0 0 40px #550000,0 0 80px #550000;
     animation: flicker 1.5s infinite alternate;
 }
-@keyframes flicker {
-    0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; }
-    20%,22%,24%,55% { opacity: 0.4; }
+@keyframes flicker{
+    0%,19%,21%,23%,25%,54%,56%,100% { opacity:1; }
+    20%,22%,24%,55% { opacity:0.4; }
 }
 
-/* --- Nawigacja --- */
 nav {
-    background-color: #111;
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-    border-bottom: 2px solid #550000;
-    flex-wrap: wrap;
+    background-color:#111;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding:15px;
+    border-bottom:2px solid #550000;
 }
-nav a {
-    color: #e0e0e0;
-    text-decoration: none;
-    margin: 5px 15px;
-    font-weight: bold;
+nav a{
+    color:#e0e0e0;
+    text-decoration:none;
+    margin:5px 15px;
+    font-weight:bold;
     transition: color 0.3s, transform 0.3s;
 }
-nav a:hover {
-    color: #ff4444;
-    transform: scale(1.1);
+nav a:hover{
+    color:#ff4444;
+    transform:scale(1.1);
 }
 
-/* --- Sekcje --- */
-main {
-    max-width: 1000px;
-    margin: auto;
-    padding: 40px 20px;
+main{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
 }
-section {
-    margin-bottom: 60px;
-    padding: 20px;
-    background-color: #111111;
-    border-left: 5px solid #ff2222;
-    box-shadow: 0 0 20px #000;
+section{
+    margin-bottom:60px;
+    padding:20px;
+    background-color: rgba(17,17,17,0.9);
+    border-left:5px solid #ff2222;
+    box-shadow:0 0 20px #000;
     transition: transform 0.3s, box-shadow 0.3s;
 }
-section:hover {
+section:hover{
     transform: translateY(-10px);
     box-shadow: 0 0 40px #ff0000;
 }
-section h2 {
-    color: #ff4444;
-    border-bottom: 1px solid #550000;
-    padding-bottom: 5px;
+section h2{
+    color:#ff4444;
+    border-bottom:1px solid #550000;
+    padding-bottom:5px;
 }
-section p {
-    line-height: 1.6;
-}
-section img {
-    max-width: 100%;
-    border: 2px solid #550000;
-    margin-top: 15px;
-    display: block;
+section p{ line-height:1.6; }
+section img{
+    max-width:100%;
+    border:2px solid #550000;
+    margin-top:15px;
+    display:block;
 }
 
-/* --- Stopka --- */
-footer {
-    background-color: #1a1a1a;
-    text-align: center;
-    padding: 25px;
-    border-top: 2px solid #550000;
-    font-size: 0.9em;
+footer{
+    background-color:#111;
+    text-align:center;
+    padding:25px;
+    border-top:2px solid #550000;
+    font-size:0.9em;
 }
 
-/* --- Animacja kropli krwi --- */
-@keyframes drop {
-    0% { top: -50px; opacity: 1; transform: translateX(0) rotate(0deg);}
-    100% { top: 100%; opacity: 0; transform: translateX(20px) rotate(360deg);}
+@keyframes drop{
+    0%{top:-50px;opacity:1;transform:translateX(0) rotate(0deg);}
+    100%{top:100%;opacity:0;transform:translateX(20px) rotate(360deg);}
 }
-.blood-drop {
-    position: absolute;
-    width: 8px;
-    height: 15px;
-    background-color: #aa0000;
-    border-radius: 50%;
-    opacity: 0.8;
+.blood-drop{
+    position:absolute;
+    width:8px;
+    height:15px;
+    background-color:#aa0000;
+    border-radius:50%;
+    opacity:0.8;
     animation: drop linear infinite;
 }
 </style>
@@ -115,93 +115,49 @@ footer {
 <body>
 
 <header>
-    <h1>Mroczne Zagadki</h1>
+<h1>Mroczne Zagadki</h1>
 </header>
 
 <nav>
-    <a href="#mordercy">Mordercy</a>
-    <a href="#seryjni">Seryjni Mordercy</a>
-    <a href="#motywy">Motywy i Profile</a>
-    <a href="#kryminalistyka">Kryminalistyka</a>
-    <a href="#dowody">Analiza Dowodów</a>
-    <a href="#sledztwo">Techniki Śledcze</a>
-    <a href="#zagadki">Mroczne Zagadki</a>
-    <a href="#nierozw">Niewyjaśnione Sprawy</a>
-    <a href="#tajemnicze">Tajemnicze Zbrodnie</a>
+<a href="#mordercy">Mordercy</a>
+<a href="#kryminalistyka">Kryminalistyka</a>
+<a href="#zagadki">Tajemnicze Sprawy</a>
 </nav>
 
 <main>
-    <!-- Mordercy -->
-    <section id="mordercy">
-        <h2>Znani Mordercy</h2>
-        <p>Przegląd najbardziej mrocznych spraw kryminalnych, historie, które wstrząsnęły światem.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Mordercy">
-    </section>
+<section id="mordercy">
+<h2>Znani Mordercy</h2>
+<p>Historia najbardziej mrocznych przestępstw.</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAA...">
+</section>
 
-    <section id="seryjni">
-        <h2>Seryjni Mordercy</h2>
-        <p>Analiza działań seryjnych przestępców i ich metod działania.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Seryjni Mordercy">
-    </section>
+<section id="kryminalistyka">
+<h2>Kryminalistyka</h2>
+<p>Metody analizy dowodów i techniki śledcze.</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAA...">
+</section>
 
-    <section id="motywy">
-        <h2>Motywy i Profile</h2>
-        <p>Psychologia przestępców, motywy i profilowanie kryminalne.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Motywy">
-    </section>
-
-    <!-- Kryminalistyka -->
-    <section id="kryminalistyka">
-        <h2>Sztuka Kryminalistyki</h2>
-        <p>Jak śledczy wykorzystują naukę i technologię do rozwiązywania zagadek zbrodni.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Kryminalistyka">
-    </section>
-
-    <section id="dowody">
-        <h2>Analiza Dowodów</h2>
-        <p>Badanie odcisków palców, DNA i śladów pozostawionych na miejscu zbrodni.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Analiza dowodów">
-    </section>
-
-    <section id="sledztwo">
-        <h2>Techniki Śledcze</h2>
-        <p>Jak rekonstruuje się wydarzenia i ustala kolejność zdarzeń.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Techniki śledcze">
-    </section>
-
-    <!-- Mroczne Zagadki -->
-    <section id="zagadki">
-        <h2>Mroczne Zagadki</h2>
-        <p>Prezentacja niewyjaśnionych spraw i tajemniczych morderstw.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Zagadki kryminalne">
-    </section>
-
-    <section id="nierozw">
-        <h2>Niewyjaśnione Sprawy</h2>
-        <p>Przypadki, które wciąż pozostają tajemnicą i inspirują śledczych.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Niewyjaśnione sprawy">
-    </section>
-
-    <section id="tajemnicze">
-        <h2>Tajemnicze Zbrodnie</h2>
-        <p>Kontrowersyjne i zaskakujące sprawy kryminalne z całego świata.</p>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD..." alt="Tajemnicze zbrodnie">
-    </section>
+<section id="zagadki">
+<h2>Tajemnicze Zbrodnie</h2>
+<p>Niewyjaśnione sprawy, tajemnicze zbrodnie i zagadki kryminalne.</p>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAYAAA...">
+</section>
 </main>
 
 <footer>
-    &copy; 2026 Mroczne Zagadki. Wszystkie prawa zastrzeżone.
+&copy; 2026 Mroczne Zagadki. Wszystkie prawa zastrzeżone.
 </footer>
 
 <script>
 for(let i=0;i<40;i++){
-    const drop = document.createElement('div');
-    drop.className = 'blood-drop';
-    drop.style.left = Math.random()*100+'%';
-    drop.style.animationDuration = 2 + Math.random()*3 + 's';
-    drop.style.animationDelay = Math.random()*5 + 's';
+    const drop=document.createElement('div');
+    drop.className='blood-drop';
+    drop.style.left=Math.random()*100+'%';
+    drop.style.animationDuration=2+Math.random()*3+'s';
+    drop.style.animationDelay=Math.random()*5+'s';
     document.body.appendChild(drop);
 }
 </script>
+
 </body>
 </html>
