@@ -4,158 +4,216 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mroczne Zagadki</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    margin:0;
-    font-family: 'Arial Black', sans-serif;
-    background: #111;
-    color: #eee;
-    overflow-x: hidden;
-  }
 
-  h1 {
-    font-size: 4em;
-    text-align:center;
-    margin: 30px 0;
-    color: #f00;
-    text-shadow:
-      0 0 5px #f00,
-      0 0 10px #f00,
-      0 0 20px #900,
-      0 0 30px #900,
-      0 0 40px #600;
-    animation: flicker 1.5s infinite;
-  }
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-  @keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {opacity:1;}
-    20%, 22%, 24%, 55% {opacity:0.4;}
-  }
+body{
+font-family:'Montserrat', sans-serif;
+background:#0b0b0d;
+color:#e6e6e6;
+overflow-x:hidden;
+}
 
-  nav {
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    margin-bottom:50px;
-  }
+/* HERO */
+.hero{
+height:100vh;
+background:linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+url('assets/hero.jpg') center/cover fixed;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
 
-  nav a {
-    color:#f00;
-    text-decoration:none;
-    font-size:1.5em;
-    transition: all 0.3s;
-  }
+.hero h1{
+font-family:'Playfair Display', serif;
+font-size:70px;
+letter-spacing:4px;
+color:#ff2e2e;
+text-shadow:0 0 20px rgba(255,0,0,0.7);
+animation:fadeIn 2s ease;
+}
 
-  nav a:hover {
-    color:#fff;
-    text-shadow: 0 0 10px #f00;
-  }
+.hero p{
+margin-top:20px;
+font-size:20px;
+color:#ccc;
+max-width:700px;
+animation:fadeIn 3s ease;
+}
 
-  section {
-    padding:80px 20px;
-    text-align:center;
-    border-bottom:1px solid #333;
-  }
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:center;
+gap:40px;
+padding:20px;
+z-index:1000;
+}
 
-  section img {
-    width:80%;
-    max-width:800px;
-    border:5px solid #333;
-    box-shadow: 0 0 20px #000;
-    margin-bottom:20px;
-  }
+nav a{
+color:#ccc;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
 
-  .blood-drop {
-    position: fixed;
-    width:10px;
-    height:20px;
-    background:red;
-    border-radius:50%;
-    top:-20px;
-    animation: fall linear infinite;
-    opacity:0.8;
-  }
+nav a:hover{
+color:#ff2e2e;
+}
 
-  @keyframes fall {
-    0% {transform: translateY(0);}
-    100% {transform: translateY(110vh);}
-  }
+/* SEKCJE */
+.section{
+padding:120px 10%;
+display:flex;
+flex-direction:column;
+gap:60px;
+}
 
-  .subcategory {
-    margin-top:15px;
-  }
+.card{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+gap:40px;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+overflow:hidden;
+backdrop-filter:blur(10px);
+box-shadow:0 0 40px rgba(255,0,0,0.15);
+transition:0.5s;
+opacity:0;
+transform:translateY(50px);
+}
 
-  .subcategory a {
-    display:inline-block;
-    margin:5px 10px;
-    padding:5px 10px;
-    background: #222;
-    color: #f00;
-    text-decoration:none;
-    border-radius:5px;
-    transition: all 0.3s;
-  }
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
 
-  .subcategory a:hover {
-    background:#444;
-    color:#fff;
-  }
+.card img{
+width:100%;
+max-width:500px;
+flex:1;
+object-fit:cover;
+}
+
+.card-content{
+flex:1;
+padding:40px;
+}
+
+.card-content h2{
+font-family:'Playfair Display', serif;
+font-size:36px;
+margin-bottom:20px;
+color:#ff3a3a;
+}
+
+.card-content p{
+line-height:1.6;
+color:#bbb;
+}
+
+/* FOOTER */
+footer{
+padding:40px;
+text-align:center;
+background:#0a0a0c;
+border-top:1px solid #222;
+color:#777;
+}
+
+/* ANIMACJA */
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSYWNOŚĆ */
+@media(max-width:900px){
+.hero h1{
+font-size:40px;
+}
+.card{
+flex-direction:column;
+}
+}
+
 </style>
 </head>
+
 <body>
 
-<h1>Mroczne Zagadki</h1>
-
 <nav>
-  <a href="#mordercy">Mordercy</a>
-  <a href="#kryminalistyka">Kryminalistyka</a>
-  <a href="#tajemnicze">Tajemnicze Zbrodnie</a>
+<a href="#">Mordercy</a>
+<a href="#">Kryminalistyka</a>
+<a href="#">Tajemnicze Sprawy</a>
 </nav>
 
-<section id="mordercy">
-  <h2>Mordercy</h2>
-  <img src="photo/engin-akyurt-KPbC6DOxPRo-unsplash.jpg" alt="Mordercy">
-  <p>Poznaj najbardziej znanych morderców w historii i ich przerażające zbrodnie.</p>
-  <div class="subcategory">
-    <a href="#">Zabójcy seryjni</a>
-    <a href="#">Zbrodnie psychopatów</a>
-    <a href="#">Nieuchwytni przestępcy</a>
-  </div>
+<section class="hero">
+<h1>MROCZNE ZAGADKI</h1>
+<p>Profesjonalne analizy najgłośniejszych zbrodni, technik śledczych i niewyjaśnionych spraw.</p>
 </section>
 
-<section id="kryminalistyka">
-  <h2>Kryminalistyka</h2>
-  <img src="photo/kalhh-clown-5365859_1280.jpg" alt="Kryminalistyka">
-  <p>Techniki śledcze i dowody kryminalistyczne wykorzystywane w mrocznych sprawach.</p>
-  <div class="subcategory">
-    <a href="#">Dowody kryminalistyczne</a>
-    <a href="#">Analiza odcisków palców</a>
-    <a href="#">Badania DNA</a>
-  </div>
+<section class="section">
+
+<div class="card">
+<img src="assets/crime1.jpg">
+<div class="card-content">
+<h2>Znani Mordercy</h2>
+<p>Psychologiczne profile, analiza motywów i rekonstrukcja wydarzeń najbardziej wstrząsających zbrodni.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/crime2.jpg">
+<div class="card-content">
+<h2>Kryminalistyka</h2>
+<p>Techniki śledcze, analiza DNA, daktyloskopia oraz nowoczesne metody wykrywania przestępstw.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/crime3.jpg">
+<div class="card-content">
+<h2>Tajemnicze Zbrodnie</h2>
+<p>Niewyjaśnione sprawy, zniknięcia i zagadki kryminalne, które do dziś budzą kontrowersje.</p>
+</div>
+</div>
+
 </section>
 
-<section id="tajemnicze">
-  <h2>Tajemnicze Zbrodnie</h2>
-  <img src="photo/tanvir22566-ai-generated-8485116_1280.png" alt="Tajemnicze Zbrodnie">
-  <p>Odkryj najbardziej zagadkowe i niewyjaśnione zbrodnie w historii.</p>
-  <div class="subcategory">
-    <a href="#">Sprawy niewyjaśnione</a>
-    <a href="#">Tajemnicze zniknięcia</a>
-    <a href="#">Zagadki kryminalne</a>
-  </div>
-</section>
+<footer>
+© 2026 Mroczne Zagadki | Strona profesjonalna
+</footer>
 
 <script>
-  // animacja kropli krwi
-  const drops = 30;
-  for(let i=0;i<drops;i++){
-    let drop = document.createElement('div');
-    drop.className='blood-drop';
-    drop.style.left=Math.random()*100+'vw';
-    drop.style.animationDuration=(2+Math.random()*3)+'s';
-    drop.style.animationDelay=(Math.random()*5)+'s';
-    document.body.appendChild(drop);
-  }
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+cards.forEach(card => {
+const top = card.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+card.classList.add('show');
+}
+});
+});
 </script>
 
 </body>
