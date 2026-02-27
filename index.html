@@ -5,149 +5,135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mroczne Zagadki</title>
 <style>
-body {
+  /* Podstawowe style */
+  body {
     margin:0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #e0e0e0;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQCAIAAAABm91ZAA...') no-repeat center center fixed;
-    background-size: cover;
-}
-body::before {
-    content:'';
+    font-family: 'Arial Black', sans-serif;
+    background: #111;
+    color: #eee;
+    overflow-x: hidden;
+  }
+
+  /* Tło mroczne z lekkim gradientem */
+  .background {
     position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.6);
+    top:0; left:0; width:100%; height:100%;
+    background: linear-gradient(to bottom, #000000, #1a1a1a);
     z-index:-1;
-}
-header {
-    text-align:center;
-    padding:80px 20px;
-}
-header h1 {
+  }
+
+  /* Efektowny nagłówek */
+  h1 {
     font-size: 4em;
-    color:#ff1111;
-    text-shadow: 0 0 5px #ff1111,0 0 10px #ff1111,0 0 20px #ff0000;
-    animation: flicker 1.5s infinite alternate;
-}
-@keyframes flicker{
-    0%,19%,21%,23%,25%,54%,56%,100% { opacity:1; }
-    20%,22%,24%,55% { opacity:0.4; }
-}
-nav {
-    background-color:#111;
+    text-align:center;
+    margin: 30px 0;
+    color: #f00;
+    text-shadow:
+      0 0 5px #f00,
+      0 0 10px #f00,
+      0 0 20px #900,
+      0 0 30px #900,
+      0 0 40px #600;
+    animation: flicker 1.5s infinite;
+  }
+
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {opacity:1;}
+    20%, 22%, 24%, 55% {opacity:0.4;}
+  }
+
+  nav {
     display:flex;
     justify-content:center;
-    flex-wrap:wrap;
-    padding:15px;
-    border-bottom:2px solid #550000;
-}
-nav a{
-    color:#e0e0e0;
+    gap:30px;
+    margin-bottom:50px;
+  }
+
+  nav a {
+    color:#f00;
     text-decoration:none;
-    margin:5px 15px;
-    font-weight:bold;
-    transition: color 0.3s, transform 0.3s;
-}
-nav a:hover{
-    color:#ff4444;
-    transform:scale(1.1);
-}
-main{
-    max-width:1000px;
-    margin:auto;
-    padding:40px 20px;
-}
-section{
-    margin-bottom:60px;
-    padding:20px;
-    background-color: rgba(17,17,17,0.9);
-    border-left:5px solid #ff2222;
-    box-shadow:0 0 20px #000;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-section:hover{
-    transform: translateY(-10px);
-    box-shadow: 0 0 40px #ff0000;
-}
-section h2{
-    color:#ff4444;
-    border-bottom:1px solid #550000;
-    padding-bottom:5px;
-}
-section img{
-    max-width:100%;
-    border:2px solid #550000;
-    margin-top:15px;
-    display:block;
-}
-footer{
-    background-color:#111;
+    font-size:1.5em;
+    transition: all 0.3s;
+  }
+
+  nav a:hover {
+    color:#fff;
+    text-shadow: 0 0 10px #f00;
+  }
+
+  section {
+    padding:80px 20px;
     text-align:center;
-    padding:25px;
-    border-top:2px solid #550000;
-    font-size:0.9em;
-}
-@keyframes drop{
-    0%{top:-50px;opacity:1;transform:translateX(0) rotate(0deg);}
-    100%{top:100%;opacity:0;transform:translateX(20px) rotate(360deg);}
-}
-.blood-drop{
-    position:absolute;
-    width:8px;
-    height:15px;
-    background-color:#aa0000;
+    border-bottom:1px solid #333;
+  }
+
+  section img {
+    width:80%;
+    max-width:600px;
+    border:5px solid #333;
+    box-shadow: 0 0 20px #000;
+    margin-bottom:20px;
+  }
+
+  /* Krople krwi animowane */
+  .blood-drop {
+    position: fixed;
+    width:10px;
+    height:20px;
+    background:red;
     border-radius:50%;
+    top:-20px;
+    animation: fall linear infinite;
     opacity:0.8;
-    animation: drop linear infinite;
-}
+  }
+
+  @keyframes fall {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(110vh);}
+  }
 </style>
 </head>
 <body>
 
-<header>
+<div class="background"></div>
+
 <h1>Mroczne Zagadki</h1>
-</header>
 
 <nav>
-<a href="#mordercy">Mordercy</a>
-<a href="#kryminalistyka">Kryminalistyka</a>
-<a href="#zagadki">Tajemnicze Sprawy</a>
+  <a href="#mordercy">Mordercy</a>
+  <a href="#kryminalistyka">Kryminalistyka</a>
+  <a href="#tajemnicze">Tajemnicze Zbrodnie</a>
 </nav>
 
-<main>
 <section id="mordercy">
-<h2>Znani Mordercy</h2>
-<p>Historia najbardziej mrocznych przestępstw.</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...">
+  <h2>Mordercy</h2>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..." alt="Mordercy">
+  <p>Poznaj najbardziej znanych morderców w historii i ich przerażające zbrodnie.</p>
 </section>
 
 <section id="kryminalistyka">
-<h2>Kryminalistyka</h2>
-<p>Metody analizy dowodów i techniki śledcze.</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...">
+  <h2>Kryminalistyka</h2>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..." alt="Kryminalistyka">
+  <p>Techniki śledcze i dowody kryminalistyczne wykorzystywane w mrocznych sprawach.</p>
 </section>
 
-<section id="zagadki">
-<h2>Tajemnicze Zbrodnie</h2>
-<p>Niewyjaśnione sprawy, tajemnicze zbrodnie i zagadki kryminalne.</p>
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA...">
+<section id="tajemnicze">
+  <h2>Tajemnicze Zbrodnie</h2>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA..." alt="Tajemnicze Zbrodnie">
+  <p>Odkryj najbardziej zagadkowe i niewyjaśnione zbrodnie w historii.</p>
 </section>
-</main>
-
-<footer>
-&copy; 2026 Mroczne Zagadki. Wszystkie prawa zastrzeżone.
-</footer>
 
 <script>
-for(let i=0;i<40;i++){
-    const drop=document.createElement('div');
+  // Generowanie animowanych kropli krwi
+  const drops = 30;
+  for(let i=0;i<drops;i++){
+    let drop = document.createElement('div');
     drop.className='blood-drop';
-    drop.style.left=Math.random()*100+'%';
-    drop.style.animationDuration=2+Math.random()*3+'s';
-    drop.style.animationDelay=Math.random()*5+'s';
+    drop.style.left=Math.random()*100+'vw';
+    drop.style.animationDuration=(2+Math.random()*3)+'s';
+    drop.style.animationDelay=(Math.random()*5)+'s';
     document.body.appendChild(drop);
-}
+  }
 </script>
 
 </body>
