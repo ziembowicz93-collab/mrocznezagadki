@@ -13,13 +13,6 @@
     overflow-x: hidden;
   }
 
-  .background {
-    position: fixed;
-    top:0; left:0; width:100%; height:100%;
-    background: linear-gradient(to bottom, #000000, #1a1a1a);
-    z-index:-1;
-  }
-
   h1 {
     font-size: 4em;
     text-align:center;
@@ -66,7 +59,7 @@
 
   section img {
     width:80%;
-    max-width:600px;
+    max-width:800px;
     border:5px solid #333;
     box-shadow: 0 0 20px #000;
     margin-bottom:20px;
@@ -87,11 +80,29 @@
     0% {transform: translateY(0);}
     100% {transform: translateY(110vh);}
   }
+
+  .subcategory {
+    margin-top:15px;
+  }
+
+  .subcategory a {
+    display:inline-block;
+    margin:5px 10px;
+    padding:5px 10px;
+    background: #222;
+    color: #f00;
+    text-decoration:none;
+    border-radius:5px;
+    transition: all 0.3s;
+  }
+
+  .subcategory a:hover {
+    background:#444;
+    color:#fff;
+  }
 </style>
 </head>
 <body>
-
-<div class="background"></div>
 
 <h1>Mroczne Zagadki</h1>
 
@@ -103,23 +114,39 @@
 
 <section id="mordercy">
   <h2>Mordercy</h2>
-  <img src="images/mordercy.png" alt="Mordercy">
+  <img src="photo/engin-akyurt-KPbC6DOxPRo-unsplash.jpg" alt="Mordercy">
   <p>Poznaj najbardziej znanych morderców w historii i ich przerażające zbrodnie.</p>
+  <div class="subcategory">
+    <a href="#">Zabójcy seryjni</a>
+    <a href="#">Zbrodnie psychopatów</a>
+    <a href="#">Nieuchwytni przestępcy</a>
+  </div>
 </section>
 
 <section id="kryminalistyka">
   <h2>Kryminalistyka</h2>
-  <img src="images/kryminalistyka.png" alt="Kryminalistyka">
+  <img src="photo/kalhh-clown-5365859_1280.jpg" alt="Kryminalistyka">
   <p>Techniki śledcze i dowody kryminalistyczne wykorzystywane w mrocznych sprawach.</p>
+  <div class="subcategory">
+    <a href="#">Dowody kryminalistyczne</a>
+    <a href="#">Analiza odcisków palców</a>
+    <a href="#">Badania DNA</a>
+  </div>
 </section>
 
 <section id="tajemnicze">
   <h2>Tajemnicze Zbrodnie</h2>
-  <img src="images/tajemnicze.png" alt="Tajemnicze Zbrodnie">
+  <img src="photo/tanvir22566-ai-generated-8485116_1280.png" alt="Tajemnicze Zbrodnie">
   <p>Odkryj najbardziej zagadkowe i niewyjaśnione zbrodnie w historii.</p>
+  <div class="subcategory">
+    <a href="#">Sprawy niewyjaśnione</a>
+    <a href="#">Tajemnicze zniknięcia</a>
+    <a href="#">Zagadki kryminalne</a>
+  </div>
 </section>
 
 <script>
+  // animacja kropli krwi
   const drops = 30;
   for(let i=0;i<drops;i++){
     let drop = document.createElement('div');
