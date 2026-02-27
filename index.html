@@ -2,253 +2,100 @@
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noir Crime Portal</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+<title>Mroczny Portal Kryminalny - Ultra</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-font-family:'Inter',sans-serif;
-background:#0a0a0f;
-color:#e8e8e8;
-overflow-x:hidden;
+body {
+  margin:0;
+  font-family: 'Arial Black', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
 }
-
-/* NAWIGACJA */
-nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:center;
-gap:60px;
-padding:25px;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(12px);
-z-index:1000;
-border-bottom:1px solid rgba(255,0,0,0.2);
+header {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAklEQVR4AewaftIAAAAwqD1T20PBxQAAAAASUVORK5CYII=') no-repeat center/cover;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
 }
-
-nav a{
-color:#aaa;
-text-decoration:none;
-font-weight:500;
-letter-spacing:1px;
-transition:0.3s;
+header h1 {
+  font-size: 4em;
+  text-shadow: 0 0 25px #ff0000;
 }
-
-nav a:hover{
-color:#ff2e2e;
-text-shadow:0 0 12px red;
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
-
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px;
-background:
-linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.95)),
-url("data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
-<rect width='1200' height='800' fill='%230b0b0f'/>
-<circle cx='950' cy='150' r='120' fill='%23ff0000' opacity='0.08'/>
-<rect x='200' y='300' width='800' height='300' fill='%23111118'/>
-<text x='600' y='500' fill='%23333333' font-size='120' text-anchor='middle'>CRIME</text>
-</svg>");
-background-size:cover;
+article {
+  background: rgba(20,20,20,0.95);
+  border-left: 5px solid #ff0000;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #000;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-
-.hero h1{
-font-family:'Cinzel',serif;
-font-size:70px;
-letter-spacing:5px;
-color:#ff2e2e;
-text-shadow:0 0 25px rgba(255,0,0,0.8);
-animation:fadeDown 2s ease;
+article:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 40px #ff0000;
 }
-
-.hero p{
-margin-top:20px;
-max-width:700px;
-color:#bbb;
-font-size:20px;
-animation:fadeUp 2s ease;
+article img {
+  width: 100%;
+  display: block;
 }
-
-/* SEKCJE */
-.section{
-padding:120px 10%;
-display:grid;
-gap:80px;
+article h2 {
+  margin: 10px;
+  font-size: 1.5em;
+  color: #ff5555;
 }
-
-.card{
-display:flex;
-flex-wrap:wrap;
-background:rgba(255,255,255,0.04);
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 0 50px rgba(255,0,0,0.15);
-transition:0.6s;
-opacity:0;
-transform:translateY(60px);
+article p {
+  margin: 10px;
+  line-height: 1.4em;
+  color: #ccc;
 }
-
-.card.show{
-opacity:1;
-transform:translateY(0);
+footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #aaa;
 }
-
-.card-image{
-flex:1;
-min-height:350px;
-background-size:cover;
-background-position:center;
-}
-
-.img1{
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
-url("data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'>
-<rect width='800' height='600' fill='%23101015'/>
-<circle cx='400' cy='300' r='180' fill='%23ff0000' opacity='0.12'/>
-<text x='400' y='330' fill='%23333333' font-size='80' text-anchor='middle'>PROFILE</text>
-</svg>");
-}
-
-.img2{
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
-url("data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'>
-<rect width='800' height='600' fill='%23111118'/>
-<circle cx='200' cy='200' r='150' fill='%23ff0000' opacity='0.1'/>
-<text x='400' y='330' fill='%23333333' font-size='70' text-anchor='middle'>FORENSICS</text>
-</svg>");
-}
-
-.img3{
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
-url("data:image/svg+xml;utf8,
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'>
-<rect width='800' height='600' fill='%23101014'/>
-<circle cx='600' cy='400' r='170' fill='%23ff0000' opacity='0.1'/>
-<text x='400' y='330' fill='%23333333' font-size='70' text-anchor='middle'>MYSTERY</text>
-</svg>");
-}
-
-.card-content{
-flex:1;
-padding:50px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-}
-
-.card-content h2{
-font-family:'Cinzel',serif;
-font-size:38px;
-color:#ff3a3a;
-margin-bottom:20px;
-}
-
-.card-content p{
-color:#bbb;
-line-height:1.7;
-}
-
-/* STOPKA */
-footer{
-padding:50px;
-text-align:center;
-border-top:1px solid #222;
-color:#666;
-background:#08080c;
-}
-
-/* ANIMACJE */
-@keyframes fadeDown{
-from{opacity:0; transform:translateY(-40px)}
-to{opacity:1; transform:translateY(0)}
-}
-@keyframes fadeUp{
-from{opacity:0; transform:translateY(40px)}
-to{opacity:1; transform:translateY(0)}
-}
-
-/* RESPONSYWNOŚĆ */
-@media(max-width:900px){
-.hero h1{font-size:42px}
-.card{flex-direction:column}
-}
-
 </style>
 </head>
 <body>
 
-<nav>
-<a href="#">Mordercy</a>
-<a href="#">Kryminalistyka</a>
-<a href="#">Tajemnice</a>
-</nav>
+<header>
+  <h1>Mroczny Portal Kryminalny</h1>
+</header>
 
-<section class="hero">
-<h1>NOIR CRIME</h1>
-<p>Portal kryminalny klasy premium. Analizy psychologiczne, techniki śledcze i najbardziej tajemnicze sprawy świata.</p>
-</section>
+<main>
+  <article>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAklEQVR4AewaftIAAAAwqD1T20PBxQAAAAASUVORK5CYII=" alt="Tło nocnego miasta">
+    <h2>Miasto w nocy</h2>
+    <p>Dynamiczne ujęcia nocnego miasta z policyjnymi światłami. Światło i cienie tworzą niepokojący klimat.</p>
+  </article>
 
-<section class="section">
+  <article>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAklEQVR4AewaftIAAAAwqD1T20PBxQAAAAASUVORK5CYII=" alt="Sylwetka z nożem">
+    <h2>Postać z nożem</h2>
+    <p>Silna sylwetka trzymająca nóż, tajemnicza i niepokojąca. Idealny efekt filmowy do mrocznej sceny.</p>
+  </article>
 
-<div class="card">
-<div class="card-image img1"></div>
-<div class="card-content">
-<h2>Profile Sprawców</h2>
-<p>Dogłębne analizy psychologiczne, motywy działania oraz rekonstrukcje najbardziej brutalnych zbrodni.</p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-image img2"></div>
-<div class="card-content">
-<h2>Kryminalistyka</h2>
-<p>Nowoczesne metody śledcze: analiza DNA, daktyloskopia, ślady biologiczne oraz techniki laboratoryjne.</p>
-</div>
-</div>
-
-<div class="card">
-<div class="card-image img3"></div>
-<div class="card-content">
-<h2>Niewyjaśnione Tajemnice</h2>
-<p>Zniknięcia, sprawy bez finału i zagadki, które do dziś pozostają otwarte.</p>
-</div>
-</div>
-
-</section>
+  <article>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAklEQVR4AewaftIAAAAwqD1T20PBxQAAAAASUVORK5CYII=" alt="Światła policyjne">
+    <h2>Policyjne światła</h2>
+    <p>Światła policyjne odbijają się w deszczowych ulicach, tworząc dramatyczną, filmową atmosferę.</p>
+  </article>
+</main>
 
 <footer>
-© 2026 Noir Crime Portal | Wersja Premium
+  &copy; 2026 Mroczny Portal Kryminalny. Wszystkie prawa zastrzeżone.
 </footer>
-
-<script>
-const cards = document.querySelectorAll('.card');
-window.addEventListener('scroll',()=>{
-cards.forEach(card=>{
-if(card.getBoundingClientRect().top < window.innerHeight-100){
-card.classList.add('show');
-}
-});
-});
-</script>
 
 </body>
 </html>
